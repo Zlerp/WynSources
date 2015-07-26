@@ -1,1 +1,14 @@
 <h1>Resources</h1>
+
+<% @resources.each do |r| %>
+<ul>
+  <li><%= link_to r.title, resource_path(r)%></li>
+  <li><a href="<%= r.url %>"><%= r.url %></a></li>
+  <li><%= link_to 'Edit', edit_resource_path(r) %></li>
+  <li><%= link_to 'View', resource_path(r) %></li>
+  <li><%= link_to 'Delete', resource_path(r), method: :delete, data: { confirm: "Are you sure you would like to delete this Resource?"} %></li>
+</ul>
+<% end %>
+
+
+<%= link_to 'New', '/resources/new' %>

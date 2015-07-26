@@ -3,7 +3,7 @@ class ResourcesController < ApplicationController
   before_filter :authorize
 
   def index
-    @resource = Resource.all
+    @resources = Resource.all
   end
 
   def new
@@ -12,7 +12,7 @@ class ResourcesController < ApplicationController
 
   def create
     @resource = Resource.create(resource_params)
-    redirect_to resource_path
+    redirect_to resources_path
   end
 
   def edit
@@ -32,7 +32,7 @@ class ResourcesController < ApplicationController
   def destroy
     @resource = Resource.find(params[:id])
     @resource.destroy
-    redirect_to resource_path
+    redirect_to resources_path
   end
 
   private
