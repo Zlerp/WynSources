@@ -10,11 +10,9 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      flash[:success] = "Successfully registered"
       session[:user_id] = user.id
       redirect_to '/'
     else
-      flash[:error] = "INVALID SHIT"
       redirect_to '/signup'
     end
   end
