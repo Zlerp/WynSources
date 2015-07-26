@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :resources
+  resources :comments 
   # You can have the root of your site routed with "root"
   root 'resources#index'
 
