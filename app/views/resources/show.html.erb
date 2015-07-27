@@ -8,6 +8,13 @@
 
 <p>Comments:</p>
 
+<% @resource.comments.each do |com| %>
+  <p>
+    <%= com.content %>
+    Added <%= time_ago_in_words com.created_at %> ago
+  </p>
+<% end %>
+
 <%= render 'comments/form' %>
 
 <%= link_to 'Back', '/resources' %>

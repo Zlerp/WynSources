@@ -16,10 +16,15 @@ class CommentsController < ApplicationController
   end
 
   def create
+    # @resource = Resource.find(params[:resource_id])
     @comment = Comment.create(comment_params)
-    redirect_to :back
-
-    #API BS HERE
+    @comment.user_id = current_user.id
+    if @comment.save
+      redirect_to :back
+    else
+      flash.now[:danger] = "error"
+    end
+  #API BS HERE
   end
 
   def update
@@ -35,6 +40,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:comment, :resource_id)
+    params.require(:comment).permit(:comment, :content, :resource_id, :user_id)
   end
 end

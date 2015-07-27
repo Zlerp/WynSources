@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   resources :users
   resources :sessions
-  resources :resources
-  resources :comments 
+  resources :resources do
+    resources :comments
+  end
+  resources :comments do
+    resources :resources
+    resources :users
+end
   # You can have the root of your site routed with "root"
   root 'resources#index'
 

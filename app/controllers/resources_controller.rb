@@ -21,6 +21,7 @@ class ResourcesController < ApplicationController
 
   def show
     @resource = Resource.find(params[:id])
+    @comment = Comment.new      # Added by Ed
   end
 
   def update
