@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    redirect_to resources_path(@resource)
+    redirect_to :back
 
     #API BS HERE
   end
