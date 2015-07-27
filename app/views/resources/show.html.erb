@@ -1,0 +1,20 @@
+<h2>showed</h2>
+
+<ul>
+  <li><%= @resource.title %></li>
+  <li><%= link_to @resource.url, @resource.url%></li>
+  <li><%= @resource.description %></li>
+</ul>
+
+<p>Comments:</p>
+
+<% @resource.comments.each do |com| %>
+  <p>
+    <%= com.content %>
+    Added <%= time_ago_in_words com.created_at %> ago
+  </p>
+<% end %>
+
+<%= render 'comments/form' %>
+
+<%= link_to 'Back', '/resources' %>

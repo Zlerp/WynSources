@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150726175326) do
+ActiveRecord::Schema.define(version: 20150727002819) do
+
+# Could not dump table "comments" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+  create_table "resources", force: :cascade do |t|
+    t.string   "title"
+    t.string   "url"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"

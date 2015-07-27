@@ -3,8 +3,15 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   resources :users
   resources :sessions
+  resources :resources do
+    resources :comments
+  end
+  resources :comments do
+    resources :resources
+    resources :users
+end
   # You can have the root of your site routed with "root"
-  root 'users#index'
+  root 'resources#index'
 
   # These routes are for loging in and out.
   get '/login' => 'sessions#new'
@@ -13,6 +20,7 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
+
 
 
 

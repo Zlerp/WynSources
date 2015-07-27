@@ -1,0 +1,6 @@
+<%= simple_form_for @comment do |f| %>
+  <%= f.input :content %>
+  <%= f.hidden_field(:user_id) %> <!-- added -->
+  <%= f.hidden_field(:resource_id, value: @resource.id) %> <!-- added -->
+  <%= f.button :submit %>
+<% end %>
